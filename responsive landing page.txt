@@ -1,0 +1,73 @@
+<nav id="nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 1em;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav li {
+  margin-right: 20px;
+}
+
+#nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+#nav a:hover {
+  color: #ccc;
+}
+
+.scrolled #nav {
+  background-color: #444;
+}
+
+.scrolled #nav a {
+  color: #aaa;
+}
+
+
+const nav = document.getElementById('nav');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+nav.addEventListener('mouseover', (e) => {
+  if (e.target.tagName === 'A') {
+    nav.style.backgroundColor = '#555';
+    nav.style.color = '#fff';
+  }
+});
+
+nav.addEventListener('mouseout', () => {
+  nav.style.backgroundColor = '';
+  nav.style.color = '';
+});
